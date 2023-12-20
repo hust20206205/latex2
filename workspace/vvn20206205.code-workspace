@@ -1,0 +1,23 @@
+{
+  "folders": [
+    {
+      "path": ".."
+    },
+    {
+      "path": "../baocao"
+    }
+  ],
+  "settings": {
+    "code-runner.executorMap": {
+      	"python": " clear && cd $dir && python $fileName",
+      	"markdown": " clear && cd $dir && if [ $fileName = README.md ]; then ( cd ../../workspace/others/push && python push.py ); else ( echo NO ); fi;",
+      	"latex": " clear && cd $dir && if [ $fileName = main.tex ]; then ( cd tools && python zViewGit.py ); else ( cd ../tools && python zViewGit.py ); fi;"
+    },
+    "latex-workshop.latex.autoBuild.run": "never"
+    // "latex-workshop.latex.autoBuild.run": "onFileChange",
+  }
+
+  // "settings": {
+  //
+  // 	// Tự động lưu file
+}
