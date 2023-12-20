@@ -81,48 +81,31 @@ class MyFormat:
         with open(path, 'w', encoding="utf-8") as file:
             file.write(contents)
 
-    # def latex(git_path):
-    #     files = glob.glob(os.path.join(git_path, f'**/*.tex'), recursive=True)
-    #     for file_latex in files:
-    #         with open(file_latex, 'r', encoding="utf-8") as file:
-    #             contents = file.read()
+    def latex(contents):
+        latex_files = glob.glob(os.path.join(
+            contents, f'**/*.tex'), recursive=True)
 
-    #         if contents == '':
-    #             continue
+        for latex_file in latex_files:
+            with open(latex_file, 'r', encoding="utf-8") as file:
+                contents = file.read()
 
-    #         for key, value in replacements.items():
-    #             value = f"  {value}  "
-    #             contents = contents.replace(key, value)
+            while '  ' in contents:
+                contents = contents.replace('  ', ' ')
 
-    #         while ' ,' in contents:
-    #             contents = contents.replace(' ,', ', ')
-    #         contents = contents.replace(' ,', ', ')
-    #         while ' ?' in contents:
-    #             contents = contents.replace(' ?', '? ')
-    #         contents = contents.replace(' ?', '? ')
-    #         while ' !' in contents:
-    #             contents = contents.replace(' !', '! ')
-    #         contents = contents.replace(' !', '! ')
+            while '( ' in contents:
+                contents = contents.replace('( ', '(')
+            while ' )' in contents:
+                contents = contents.replace(' )', ')')
+            while '[ ' in contents:
+                contents = contents.replace('[ ', '[')
+            while ' ]' in contents:
+                contents = contents.replace(' ]', ']')
+            while '{ ' in contents:
+                contents = contents.replace('{ ', '{')
+            while ' }' in contents:
+                contents = contents.replace(' }', '}')
 
-    #         while '  ' in contents:
-    #             contents = contents.replace('  ', ' ')
+            with open(latex_file, 'w', encoding="utf-8") as file:
+                file.write(contents)
 
-    #         while '( ' in contents:
-    #             contents = contents.replace('( ', '(')
-    #         while ' )' in contents:
-    #             contents = contents.replace(' )', ')')
-    #         while '[ ' in contents:
-    #             contents = contents.replace('[ ', '[')
-    #         while ' ]' in contents:
-    #             contents = contents.replace(' ]', ']')
-    #         while '{ ' in contents:
-    #             contents = contents.replace('{ ', '{')
-    #         while ' }' in contents:
-    #             contents = contents.replace(' }', '}')
-
-    #         contents = '\n'.join(line.strip() for line in contents.split('\n'))
-    #         while "\n\n\n" in contents:
-    #             contents = contents.replace("\n\n\n", "\n\n")
-    #         contents = contents.lstrip('\n')
-    #         with open(file_latex, 'w', encoding="utf-8") as file:
-    #             file.write(contents)
+            MyFormat.basic(latex_file)

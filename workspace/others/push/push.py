@@ -5,16 +5,17 @@ from modules.MyView import MyView
 
 message = "VuVanNghia20206205"
 
-git_path =  os.path.join(os.getcwd(), '../../../')
+git =  os.path.join(os.getcwd(), '../../../')
+contents =  os.path.join(os.getcwd(), '../../../baocao/contents')
 # init_path =  os.path.join(os.getcwd(), '../../../baocao/contents/start/init.sty')
 # workspace_path = os.path.join(os.getcwd(), '../../report.code-workspace')
 # gitignore_path = os.path.join(git_path, ".gitignore") 
 
-MyGit.chdir(git_path)
+MyGit.chdir(git)
 MyGit.add()
 MyGit.commit(message)
 
-# MyFormat.latex(git_path)
+MyFormat.latex(contents)
 # MyFormat.markdown(git_path)
 # MyFormat.basic(gitignore_path)
 # MyFormat.basic(init_path)
