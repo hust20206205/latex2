@@ -7,7 +7,7 @@ message = "VuVanNghia20206205"
 
 git =  os.path.join(os.getcwd(), '../../../')
 contents =  os.path.join(os.getcwd(), '../../../baocao/contents')
-main =  os.path.join(os.getcwd(), '../../../baocao/contents/main.tex')
+main =  os.path.join(os.getcwd(), '../../../baocao/main.tex')
 # init_path =  os.path.join(os.getcwd(), '../../../baocao/contents/start/init.sty')
 # workspace_path = os.path.join(os.getcwd(), '../../report.code-workspace')
 # gitignore_path = os.path.join(git_path, ".gitignore") 
